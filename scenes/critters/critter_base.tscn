@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://wwc16oql1boy"]
+
+[ext_resource type="Script" path="res://scenes/critters/critter_base.gd" id="1_tw24d"]
+[ext_resource type="Texture2D" uid="uid://c46i8idiai17s" path="res://assets/sprites/critters.png" id="2_asn73"]
+
+[node name="critter_base" type="CharacterBody2D"]
+script = ExtResource("1_tw24d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_asn73")
+hframes = 4
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cauepmmi2cp0u"]
+
+[ext_resource type="PackedScene" uid="uid://wwc16oql1boy" path="res://scenes/critters/critter_base.tscn" id="1_mf8ue"]
+[ext_resource type="Resource" uid="uid://cugbb3p7oy4ue" path="res://scenes/critters/blob_properties.tres" id="2_a233v"]
+[ext_resource type="AnimationLibrary" uid="uid://c00ttwcpn3u6h" path="res://scenes/critters/blob_animations.tres" id="3_jfslv"]
+[ext_resource type="Texture2D" uid="uid://beci8r1swr3ko" path="res://assets/sprites/critter_blob.png" id="4_ggavd"]
+
+[sub_resource type="Animation" id="Animation_7rxbl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cwpp5"]
+_data = {
+"RESET": SubResource("Animation_7rxbl")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sahr0"]
+size = Vector2(14, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3eoss"]
+radius = 6.0
+
+[node name="critter_blob" instance=ExtResource("1_mf8ue")]
+critter_properties = ExtResource("2_a233v")
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_cwpp5"),
+"blob_animations": ExtResource("3_jfslv")
+}
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("4_ggavd")
+hframes = 13
+vframes = 1
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_sahr0")
+
+[node name="item_collider" type="AnimatableBody2D" parent="." index="3"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item_collider" index="0"]
+shape = SubResource("CircleShape2D_3eoss")

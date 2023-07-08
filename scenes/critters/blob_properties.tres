@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CritterProperties" load_steps=2 format=3 uid="uid://cugbb3p7oy4ue"]
+
+[ext_resource type="Script" path="res://scripts/resources/critter_properties.gd" id="1_1nq54"]
+
+[resource]
+script = ExtResource("1_1nq54")
+cute = 3
+pathetic = 3
+survival = 3
+anim_prefix = "blob_animations"

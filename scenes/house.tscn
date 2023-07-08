@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvppm4hik2e5c"]
+
+[ext_resource type="Script" path="res://scripts/main_camera.gd" id="1_j3tol"]
+[ext_resource type="PackedScene" uid="uid://c7wb0frqtqelv" path="res://scenes/rooms/main_room.tscn" id="1_us6bd"]
+[ext_resource type="PackedScene" uid="uid://cauepmmi2cp0u" path="res://scenes/critters/critter_blob.tscn" id="2_yll2u"]
+[ext_resource type="PackedScene" uid="uid://da2tdpxbcefvf" path="res://scenes/rooms/garden.tscn" id="4_5nouq"]
+
+[node name="house" type="Node2D"]
+
+[node name="main_camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+script = ExtResource("1_j3tol")
+
+[node name="main_room" parent="." instance=ExtResource("1_us6bd")]
+
+[node name="garden" parent="." instance=ExtResource("4_5nouq")]
+position = Vector2(-128, 0)
+
+[node name="critter_blob" parent="." instance=ExtResource("2_yll2u")]
+position = Vector2(-1, 18)

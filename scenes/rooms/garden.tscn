@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://da2tdpxbcefvf"]
+
+[ext_resource type="Texture2D" uid="uid://bp0qd88wen7gc" path="res://assets/sprites/rooms.png" id="1_221iw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g28mt"]
+size = Vector2(128, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrrb3"]
+size = Vector2(8, 39.5)
+
+[node name="garden" type="Node2D"]
+
+[node name="room_bg" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_221iw")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="room_bg"]
+
+[node name="floor" type="CollisionShape2D" parent="room_bg/StaticBody2D"]
+position = Vector2(0, 57)
+shape = SubResource("RectangleShape2D_g28mt")
+
+[node name="fence" type="CollisionShape2D" parent="room_bg/StaticBody2D"]
+position = Vector2(-60, 29)
+shape = SubResource("RectangleShape2D_mrrb3")
